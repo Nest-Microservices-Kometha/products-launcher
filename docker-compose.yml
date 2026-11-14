@@ -27,6 +27,7 @@ services:
       - NATS_SERVERS=nats://nats-server:4222
       - DATABASE_URL=file:./dev.db
 
+  # Orders MS
   orders-ms:
     depends_on:
       - orders-db
@@ -39,6 +40,7 @@ services:
       - NATS_SERVERS=nats://nats-server:4222
       - DATABASE_URL=postgresql://postgres:fidel89@orders-db:5432/ordersdb?schema=public
 
+  # Orders DataBase
   orders-db:
     container_name: orders_database
     image: postgres:16.2
