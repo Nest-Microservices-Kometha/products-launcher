@@ -23,7 +23,7 @@ services:
       - ./products-ms/src:/usr/src/app/src
     command: npm run start:dev
     environment:
-      - PORT=3001
+      - PORT=${PRODUCTS_MS_PORT}
       - NATS_SERVERS=nats://nats-server:4222
       - DATABASE_URL=file:./dev.db
 
@@ -35,7 +35,7 @@ services:
       - ./orders-ms/src:/usr/src/app/src
     command: npm run start:dev
     environment:
-      - PORT=3002
+      - PORT=${ORDERS_MS_PORT}
       - NATS_SERVERS=nats://nats-server:4222
       - DATABASE_URL=postgresql://postgres:fidel89@orders-db:5432/ordersdb?schema=public
 
