@@ -27,6 +27,15 @@ services:
       - NATS_SERVERS=${NATS_URL}
       - DATABASE_URL=file:./dev.db
 
+  payments-ms:
+    build: ./payments-ms
+    volumes:
+      - ./payments-ms/src:/usr/src/app/src
+    command: npm run start:dev
+    environment:
+      - PORT=${PAYMENTS_MS_PORT}
+      - NATS_SERVERS=${NATS_URL}
+
   # Orders MS
   orders-ms:
     depends_on:
